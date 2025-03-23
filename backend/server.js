@@ -18,7 +18,7 @@ let app=express()
 app.use(express.json())
 
 app.use(cors({
-    origin:"http://localhost:5173",
+    origin:"https://vyavsay.vercel.app",
     credentials:true
 }))
 
@@ -34,7 +34,9 @@ app.use(
   )
 
 
-mongoose.connect(`${process.env.MONGO_URL}` )
+mongoose.connect(`${process.env.MONGO_URL}` ).then(() => {
+  console.log("connected to mongoDB")
+})
 
 app.get("/",(req,resp)=>{
     resp.send({success:true})

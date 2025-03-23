@@ -28,6 +28,7 @@ function App() {
             <Route path="/cart" element={<CartPage />} />
             <Route path="/create-shop" element={<CreateShop/>}/>
             <Route path="/shop-dashboard" element={<ShopkeeperDashboard/>}/>
+          
           </Routes>
         </main>
         <Footer />
