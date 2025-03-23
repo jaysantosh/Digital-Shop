@@ -23,7 +23,7 @@ function ShopkeeperDashboard() {
   }
 
   let handleDelete = async (id) => {
-    axios.delete("${BASE_URL}/shop/"+id)
+    axios.delete(`${BASE_URL}/shop/`+id)
     .then(result => console.log(result))
     .catch(err=>console.log(err))
   }
