@@ -1,13 +1,14 @@
 
 import { useState } from "react"
 import "./ProductCard.css"
+const BASE_URL = import.meta.env.VITE_BASE_URL
 
 function ProductCard({ product }) {
   const [quantity, setQuantity] = useState(1)
 
   const addToCart = async () => {
     try {
-      const response = await fetch("http://localhost:3000/cart/add", {
+      const response = await fetch(`${BASE_URL}/cart/add`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

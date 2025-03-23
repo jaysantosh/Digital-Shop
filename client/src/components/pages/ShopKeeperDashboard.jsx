@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+const BASE_URL = import.meta.env.VITE_BASE_URL
 
 function ShopkeeperDashboard() {
   const [shops, setShops] = useState([]);
@@ -10,7 +11,7 @@ function ShopkeeperDashboard() {
     if (!user) return;
 
     axios
-      .get("http://localhost:3000/shop/owner/"+user.id, { withCredentials: true })
+      .get(`${BASE_URL}/shop/owner/`+user.id, { withCredentials: true })
       .then((response) => {setShops(response.data)
         console.log(response.data)
       })
@@ -22,7 +23,7 @@ function ShopkeeperDashboard() {
   }
 
   let handleDelete = async (id) => {
-    axios.delete("http://localhost:3000/shop/"+id)
+    axios.delete("${BASE_URL}/shop/"+id)
     .then(result => console.log(result))
     .catch(err=>console.log(err))
   }

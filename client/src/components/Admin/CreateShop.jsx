@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./CreateShop.css";
+const BASE_URL = import.meta.env.VITE_BASE_URL
 
 function CreateShop() {
   const [shop, setShop] = useState({
@@ -20,7 +21,7 @@ function CreateShop() {
     setMessage(""); // Clear previous messages
 
     try {
-      const response = await fetch("http://localhost:3000/shop", {
+      const response = await fetch(`${BASE_URL}/shop`, {
         method: "POST",
         credentials:"include",
         headers: { "Content-Type": "application/json" },

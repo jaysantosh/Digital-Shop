@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import "./CartPage.css"
+const BASE_URL = import.meta.env.VITE_BASE_URL
 
 function CartPage() {
   const [cart, setCart] = useState(null)
@@ -12,7 +13,7 @@ function CartPage() {
 
   const fetchCart = async () => {
     try {
-      const response = await fetch("http://localhost:3000/cart", { credentials: "include" })
+      const response = await fetch(`${BASE_URL}/cart`, { credentials: "include" })
       const data = await response.json()
   
       if (response.status === 401 || data.message === "Login required") {
@@ -29,7 +30,7 @@ function CartPage() {
   const updateQuantity = async (productId, newQuantity,current) => {
 
     try {
-      const response = await fetch("http://localhost:3000/cart/update", {
+      const response = await fetch(`${BASE_URL}/cart/update`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -55,7 +56,7 @@ function CartPage() {
   const removeFromCart = async (productId) => {
     try {
       
-      const response = await fetch("http://localhost:3000/cart/remove", {
+      const response = await fetch(`${BASE_URL}/cart/remove`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",

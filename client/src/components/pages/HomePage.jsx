@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import "./HomePage.css"
+const BASE_URL = import.meta.env.VITE_BASE_URL
 
 function HomePage() {
   const [shops, setShops] = useState([])
@@ -13,7 +14,7 @@ function HomePage() {
 
   const fetchShops = async () => {
     try {
-      const response = await fetch("http://localhost:3000/shop")
+      const response = await fetch(`${BASE_URL}/shop`)
       const data = await response.json()
    
       setShops(data)

@@ -1,4 +1,6 @@
 const express=require('express')
+require("dotenv").config();
+
 const mongoose=require('mongoose')
 const session = require("express-session")
 const MongoStore = require("connect-mongo")
@@ -9,6 +11,8 @@ let ShopRoutes=require('./routes/ShopRoutes')
 let UserRoutes=require('./routes/UserRoutes')
 let authRoutes= require('./routes/authRoutes')
 let cors=require('cors')
+
+
 
 let app=express()
 app.use(express.json())
@@ -24,13 +28,13 @@ app.use(
       secret: "your-secret-key",
       resave: false,
       saveUninitialized: false,
-      store: MongoStore.create({ mongoUrl: "mongodb://127.0.0.1:27017/Jay_Third_Year_Project" }),
+      store: MongoStore.create({ mongoUrl: `${process.env.MONGO_URL}` }),
       cookie: { secure: false, httpOnly: true , maxAge : 1000 * 60 * 60 * 24 },
     })
   )
 
 
-mongoose.connect("mongodb://localhost:27017/Jay_Third_Year_Project")
+mongoose.connect(`${process.env.MONGO_URL}` )
 
 app.get("/",(req,resp)=>{
     resp.send({success:true})

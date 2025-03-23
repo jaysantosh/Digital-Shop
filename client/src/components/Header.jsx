@@ -2,11 +2,12 @@ import { Link, useNavigate } from "react-router-dom"
 import "./Header.css"
 import axios from 'axios'
 import { useState } from "react"
+const BASE_URL = import.meta.env.VITE_BASE_URL
 function Header() {
   const navigate = useNavigate()
   const [isAuthenticated,setIsAuthenticated] = useState()
   const handleLogout = async()=>{
-    const response = await axios.post("http://localhost:3000/auth/logout",{},{withCredentials:"include"})
+    const response = await axios.post(`${BASE_URL}/auth/logout`,{},{withCredentials:"include"})
     if(response)
     {
       alert("successfully Logged out")

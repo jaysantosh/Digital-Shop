@@ -2,6 +2,7 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import axios from "axios"
 import "./Login.css"
+const BASE_URL = import.meta.env.VITE_BASE_URL
 
 
 const Login = () => {
@@ -13,7 +14,7 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault()
     try {
-      const res = await axios.post("http://localhost:3000/auth/login", { email, password }, { withCredentials: true })
+      const res = await axios.post(`${BASE_URL}/auth/login`, { email, password }, { withCredentials: true })
       localStorage.setItem("user", JSON.stringify(res.data)) // Store session
       alert("Login successful!")
       navigate("/")

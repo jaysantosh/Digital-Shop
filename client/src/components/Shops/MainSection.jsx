@@ -6,7 +6,7 @@ import {useState} from 'react'
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
+const BASE_URL = import.meta.env.VITE_BASE_URL
 
 
 function MainSection()
@@ -19,7 +19,7 @@ function MainSection()
     }
     
     useEffect(()=>{
-        axios.get("http://localhost:3000/shop",{withCredentials:true})
+        axios.get(`${BASE_URL}/shop`,{withCredentials:true})
         .then((data)=>{
             console.log(data.data)
             setShopData(data.data)

@@ -1,6 +1,7 @@
 import { useState } from "react"
 import axios from "axios"
 import './Register.css'
+const BASE_URL = import.meta.env.VITE_BASE_URL
 
 const Register = () => {
   const [name, setName] = useState("")
@@ -11,7 +12,7 @@ const Register = () => {
   const handleRegister = async (e) => {
     e.preventDefault()
     try {
-      const res = await axios.post("http://localhost:3000/auth/register", { name, email, password, role }, { withCredentials: true })
+      const res = await axios.post(`${BASE_URL}/auth/register`, { name, email, password, role }, { withCredentials: true })
       alert("Registration successful!")
     } catch (error) {
       alert(error.response.data.message || "Registration failed")

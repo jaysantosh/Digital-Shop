@@ -3,6 +3,7 @@ import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import ProductCard from "../ProductCard"
 import "./ShopPage.css"
+const BASE_URL = import.meta.env.VITE_BASE_URL
 
 function ShopPage() {
   const { id } = useParams()
@@ -16,7 +17,7 @@ function ShopPage() {
 
   const fetchShopDetails = async () => {
     try {
-      const response = await fetch(`http://localhost:3000/shop/${id}`)
+      const response = await fetch(`${BASE_URL}/shop/${id}`)
       const data = await response.json()
       setShop(data)
       // console.log(data[0].name)
@@ -27,7 +28,7 @@ function ShopPage() {
 
   const fetchShopProducts = async () => {
     try {
-      const response = await fetch(`http://localhost:3000/product/${id}`)
+      const response = await fetch(`${BASE_URL}/product/${id}`)
       const data = await response.json()
       setProducts(data)
       
