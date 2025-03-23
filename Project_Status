@@ -1,0 +1,17 @@
+i need to do corrections n the cart functionality --- done
+i need to apply the feature that only logged in persons can access the website for that i have applied auth context but it is not working
+when the user is logged in he should get logout button and when the user is not logged in he should get login button
+-> Actually i am working on removing the cart where i have done 50% thing only i have to update the price after the deletion
+-> This is haven't started->Now i have to provide the shopkeepers with adding products to their website.
+
+
+
+
+______________________*************************_________________________________
+                        Today's Goal                                            
+                    1.  Provide a Manage Shop link                                      
+                    2.  That will redirect to shopkeeper panel      
+                    3.  All his shops will be listed there
+                    4.  Products can be added in each shop 
+
+_____________________**************************_________________________________

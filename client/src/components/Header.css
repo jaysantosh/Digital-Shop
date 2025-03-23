@@ -1,0 +1,35 @@
+.header {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    padding: 10px 0;
+  }
+  
+  .header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--secondary-color);
+    text-decoration: none;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+  }
+  
+  nav ul li {
+    margin-left: 20px;
+  }
+  
+  nav ul li a {
+    color: var(--secondary-color);
+    text-decoration: none;
+  }
+  
+  
